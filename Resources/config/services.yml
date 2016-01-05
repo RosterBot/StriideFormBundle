@@ -13,4 +13,4 @@ services:
     class: Striide\FormBundle\Validator\FormValidatorFactory
     calls:
       - [setTranslator,[@translator]]
-      - [setMetaDataFactory,[@validator.mapping.class_metadata_factory]]
+      - [setMetaDataFactory]

@@ -4,15 +4,15 @@ use Symfony\Component\Form\Form;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\MinLength;
 use Symfony\Component\Validator\Constraints\Collection;
-use Symfony\Component\Validator\Mapping\ClassMetadataFactory;
+use Symfony\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory;
 use Symfony\Bundle\FrameworkBundle\Translation\Translator;
 
 class FormValidatorFactory
 {
   protected $metadataFactory = null;
-  public function setMetaDataFactory(ClassMetadataFactory $metadataFactory)
+  public function setMetaDataFactory(LazyLoadingMetadataFactory $metadataFactory = null)
   {
-    $this->metadataFactory = $metadataFactory;
+    $this->metadataFactory = new LazyLoadingMetadataFactory();
   }
   private $translator = null;
   public function setTranslator(Translator $translator)
